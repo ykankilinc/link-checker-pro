@@ -47,10 +47,12 @@ async function startScan() {
     }
 
     isScanning = false;
+    updatePopupStats();
 }
 
 function stopScan() {
     isScanning = false;
+    updatePopupStats();
 }
 
 async function checkLinkStatus(element, url) {

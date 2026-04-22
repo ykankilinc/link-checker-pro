@@ -19,11 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const activeTab = tabs[0];
         if (activeTab) {
-            // Set dynamic placeholder for exclusions based on current domain
-            const url = new URL(activeTab.url);
-            const domain = url.hostname.replace('www.', '');
-            document.getElementById('exclusions').placeholder = `e.g. ${domain}, twitter.com`;
-            
             // Get state from background
             chrome.runtime.sendMessage({ action: 'getTabState', tabId: activeTab.id }, (response) => {
                 if (response) {

@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "description": "Premium, high-speed link checker for web developers and SEO specialists. Developed by ykankilinc.",
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ],
   "host_permissions": [
     "<all_urls>"

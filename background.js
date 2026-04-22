@@ -15,8 +15,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       stats: request.stats,
       isScanning: request.isScanning
     };
-    // Broadcast to popup if open
-    chrome.runtime.sendMessage({ action: 'statsUpdated', stats: request.stats, isScanning: request.isScanning, tabId: tabId });
+    // Broadcast to popup if open (suppress error if popup is closed)
+    chrome.runtime.sendMessage({ 
+      action: 'statsUpdated', 
+      stats: request.stats, 
+      isScanning: request.isScanning, 
+      tabId: tabId 
+    }).catch(() => {
+        // Silently catch the "Receiving end does not exist" error when popup is closed
+    });
   }
 
   if (request.action === 'getTabState') {
