@@ -1,0 +1,40 @@
+/* Status Badges Overlay */
+.lcp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    margin-left: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: white;
+    z-index: 10000;
+}
+
+.lcp-status-200 { background-color: #10b981 !important; } /* Emerald */
+.lcp-status-301, .lcp-status-302 { background-color: #3b82f6 !important; } /* Blue */
+.lcp-status-404 { background-color: #ef4444 !important; } /* Red */
+.lcp-status-500 { background-color: #8b5cf6 !important; } /* Purple */
+.lcp-status-warning { background-color: #f59e0b !important; } /* Amber */
+
+.lcp-link-highlight {
+    outline: 2px solid rgba(16, 185, 129, 0.5) !important;
+    transition: outline 0.3s ease;
+}
+
+.lcp-link-broken {
+    outline: 2px solid rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Animations */
+@keyframes lcp-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lcp-status-badge {
+    animation: lcp-fade-in 0.2s ease-out forwards;
+}

@@ -1,0 +1,230 @@
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --primary: #10b981;
+    --primary-glow: rgba(16, 185, 129, 0.3);
+    --secondary: #ef4444;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    width: 350px;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+.app-container {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%);
+    min-height: 480px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo h1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo h1 span {
+    color: var(--primary);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #64748b;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: var(--primary);
+    box-shadow: 0 0 8px var(--primary);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.stat-card.total {
+    grid-column: span 2;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.stat-card .value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-card.valid .value { color: var(--primary); }
+.stat-card.broken .value { color: var(--secondary); }
+.stat-card.redirected .value { color: #3b82f6; }
+.stat-card.warnings .value { color: #f59e0b; }
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.primary-btn:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background: #334155;
+    color: white;
+}
+
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tertiary-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.tertiary-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.controls-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+input {
+    background: #1e293b;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary);
+}
+
+footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.signature {
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.signature:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
