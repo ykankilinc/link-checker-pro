@@ -5,9 +5,7 @@
   "description": "Premium, high-speed link checker for web developers and SEO specialists. Developed by ykankilinc.",
   "permissions": [
     "activeTab",
-    "scripting",
-    "storage",
-    "tabs"
+    "storage"
   ],
   "host_permissions": [
     "<all_urls>"
